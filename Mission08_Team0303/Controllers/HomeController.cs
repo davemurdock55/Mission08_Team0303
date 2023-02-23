@@ -69,7 +69,7 @@ namespace Mission08_Team0303.Controllers
             var entry = tasksContext.Tasks
                 .Single(tasks_context => tasks_context.TaskId == taskId);
 
-            return View("Index", entry);
+            return View("AddTask", entry);
         }
         [HttpPost]
         public IActionResult Edit(Tasks blah)

@@ -14,9 +14,9 @@ namespace Mission08_Team0303.Controllers
 
         private TaskContext tasksContext { get; set; }
 
-        public HomeController(TaskContext task_context)
+        public HomeController(TaskContext tasks_context)
         {
-            tasksContext = task_context;
+            tasksContext = tasks_context;
         }
 
 
@@ -25,7 +25,7 @@ namespace Mission08_Team0303.Controllers
         public IActionResult Index()
         {
             // putting the movieinfo(response) of the moviesContext table context object into a list of type "Movie"
-            var TaskList = tasksContext.Tasks
+            var TaskList = tasksContext.Responses
                 // getting the Cateogry object associated with that movie (through the CategoryID FK relationship)
                 //.Include(x => x.Category)
                 //making sure the movie hasn't been edited

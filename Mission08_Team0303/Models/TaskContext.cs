@@ -15,7 +15,7 @@ namespace Mission08_Team0303.Models
             // leave blank for now. accomplishes inheritance
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Task> Responses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)
         {

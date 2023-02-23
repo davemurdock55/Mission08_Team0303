@@ -35,7 +35,7 @@
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            if (x.Quadrant == 1) 
+                            if (x.Quadrant == 1)
                             {
                                 <tr>
                                     <th scope="row"><center><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
@@ -53,40 +53,40 @@
         </div>
 
         @* Important, but not Urgent *@
-    <div class="card text-white bg-warning m-3 mx-auto p-0">
-        <div class="card-header d-flex justify-content-between">Urgent | Not Important <span>Quadrant 3</span></div>
-        <div class="card-body">
-            <h3 class="card-title">To-Do:</h3>
-            <table class="table table-hover table-warning">
-                <thead>
-                    <tr>
-                        <th scope="col">Status</th>
-                        <th scope="col">Task</th>
-                        <th scope="col">Due Date</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var x in Model)
-                    {
-                        if (x.Quadrant == 2)
+        <div class="card text-white bg-warning m-3 mx-auto p-0">
+            <div class="card-header d-flex justify-content-between">Urgent | Not Important <span>Quadrant 3</span></div>
+            <div class="card-body">
+                <h3 class="card-title">To-Do:</h3>
+                <table class="table table-hover table-warning">
+                    <thead>
+                        <tr>
+                            <th scope="col">Status</th>
+                            <th scope="col">Task</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
                         {
-                            <tr>
-                                <th scope="row"><center><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
-                                <td>@x.task</td>
-                                <td>@x.DueDate</td>
-                                <td>@x.Category</td>
-                                <td><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
-                                <td><a asp-controller="HomeController" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
-                            </tr>
+                            if (x.Quadrant == 2)
+                            {
+                                <tr>
+                                    <th scope="row"><center><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
+                                    <td>@x.task</td>
+                                    <td>@x.DueDate</td>
+                                    <td>@x.Category</td>
+                                    <td><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
+                                    <td><a asp-controller="HomeController" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
+                                </tr>
+                            }
                         }
-                    }
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
     </div>
 
     <div class="row mx-3">
@@ -164,3 +164,6 @@
 
     </div>
 </div>
+<center>
+    <a class="btn btn-outline-primary" asp-controller="HomeController" asp-action="Add">Add a Task</a>
+</center>

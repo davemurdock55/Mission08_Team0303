@@ -12,14 +12,11 @@ namespace Mission08_Team0303.Controllers
     public class HomeController : Controller
     {
 
-        private TaskContext taskContext { get; set; }
+        private TaskContext tasksContext { get; set; }
 
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger, TaskContext task_context)
+        public HomeController(TaskContext task_context)
         {
-            _logger = logger;
-            taskContext = task_context;
+            tasksContext = task_context;
         }
 
 
@@ -28,18 +25,18 @@ namespace Mission08_Team0303.Controllers
         public IActionResult Index()
         {
             // putting the movieinfo(response) of the moviesContext table context object into a list of type "Movie"
-            var TaskList = taskContext.responses
+            var TaskList = tasksContext.Tasks
                 // getting the Cateogry object associated with that movie (through the CategoryID FK relationship)
-                .Include(x => x.Category)
+                //.Include(x => x.Category)
                 //making sure the movie hasn't been edited
                 //.Where(x => x.Edited != true)
                 // ordering by Title
-                .OrderBy(x => x.MovieID)
+                .OrderBy(x => x.TaskId)
                 .ToList();
-
+            
 
             // putting that MovieList into the View function as "context" for the page
-            return View(MovieList);
+            return View(TaskList);
         }
 
         public IActionResult Privacy()

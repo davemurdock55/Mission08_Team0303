@@ -15,35 +15,44 @@ namespace Mission08_Team0303.Models
             // leave blank for now. accomplishes inheritance
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Tasks> Tasks { get; set; }
+
+        public DbSet<Category> Category { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
-            mb.Entity<Task>().HasData(
-                new Task
+            mb.Entity<Category>().HasData(
+               new Category { CategoryId = 1, CategoryName = "Home" },
+               new Category { CategoryId = 2, CategoryName = "School" },
+               new Category { CategoryId = 3, CategoryName = "Work" },
+               new Category { CategoryId = 4, CategoryName = "Church" }
+             );
+
+            mb.Entity<Tasks>().HasData(
+                new Tasks
                 {
                     TaskId = 1,
                     task = "Do laundry",
                     DueDate = "Tuesday",
                     Quadrant = 4,
-                    Category = "Home",
+                    CategoryId = 1,
                     Completed = false
                 },
-                new Task
+                new Tasks
                 {
                     TaskId = 2,
                     task = "Write talk",
                     DueDate = "Sunday",
                     Quadrant = 2,
-                    Category = "Church",
+                    CategoryId = 4,
                     Completed = false
                 },
-                new Task
+                new Tasks
                 {
                     TaskId = 3,
                     task = "Go to work",
                     Quadrant = 1,
-                    Category = "Work",
+                    CategoryId = 3,
                     Completed = true
                 }
             );

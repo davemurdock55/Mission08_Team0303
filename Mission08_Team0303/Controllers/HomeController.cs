@@ -38,16 +38,61 @@ namespace Mission08_Team0303.Controllers
             // putting that MovieList into the View function as "context" for the page
             return View(TaskList);
         }
-
-        public IActionResult Privacy()
+        [HttpGet]//get method and result
+        public IActionResult AddTask()
         {
+            ViewBag.Categories = tasksContext.Category.ToList();
+
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]//post method and result
+        public IActionResult AddTask(Tasks ar)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                tasksContext.Add(ar);
+                tasksContext.SaveChanges();
+                return View("Confirmation", ar);
+            }
+            else
+            {
+                ViewBag.Majors = tasksContext.Category.ToList();
+
+                return View(ar);
+            }
+        }
+        [HttpGet]
+        public IActionResult Edit(int taskId)
+        {
+            ViewBag.Categories = tasksContext.Category.ToList();
+
+            var entry = tasksContext.Tasks
+                .Single(tasks_context => tasks_context.TaskId == taskId);
+
+            return View("Index", entry);
+        }
+        [HttpPost]
+        public IActionResult Edit(Tasks blah)
+        {
+            tasksContext.Update(blah);
+            tasksContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Delete(int taskId)
+        {
+            var entry = tasksContext.Tasks
+                .Single(tasks_context => tasks_context.TaskId == taskId);
+
+            return View(entry);
+        }
+        [HttpPost]
+        public IActionResult Delete(Tasks ar)
+        {
+            tasksContext.Tasks.Remove(ar);
+            tasksContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

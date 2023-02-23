@@ -15,14 +15,50 @@ namespace Mission08_Team0303.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.32");
 
-            modelBuilder.Entity("Mission08_Team0303.Models.Task", b =>
+            modelBuilder.Entity("Mission08_Team0303.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Home"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "School"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Work"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Church"
+                        });
+                });
+
+            modelBuilder.Entity("Mission08_Team0303.Models.Tasks", b =>
                 {
                     b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("Completed")
                         .HasColumnType("INTEGER");
@@ -39,13 +75,15 @@ namespace Mission08_Team0303.Migrations
 
                     b.HasKey("TaskId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Tasks");
 
                     b.HasData(
                         new
                         {
                             TaskId = 1,
-                            Category = "Home",
+                            CategoryId = 1,
                             Completed = false,
                             DueDate = "Tuesday",
                             Quadrant = 4,
@@ -54,7 +92,7 @@ namespace Mission08_Team0303.Migrations
                         new
                         {
                             TaskId = 2,
-                            Category = "Church",
+                            CategoryId = 4,
                             Completed = false,
                             DueDate = "Sunday",
                             Quadrant = 2,
@@ -63,11 +101,20 @@ namespace Mission08_Team0303.Migrations
                         new
                         {
                             TaskId = 3,
-                            Category = "Work",
+                            CategoryId = 3,
                             Completed = true,
                             Quadrant = 1,
                             task = "Go to work"
                         });
+                });
+
+            modelBuilder.Entity("Mission08_Team0303.Models.Tasks", b =>
+                {
+                    b.HasOne("Mission08_Team0303.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

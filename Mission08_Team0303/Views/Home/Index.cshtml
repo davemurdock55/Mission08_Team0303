@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home";
 }
 
-@model List<Mission08_Team0303.Models.Task>
+@model List<Mission08_Team0303.Models.Tasks>
 
 <div class="page-header text-center" id="banner">
     <div class="row">
@@ -39,12 +39,12 @@
                                 if (x.Quadrant == 1)
                                 {
                                     <tr>
-                                        <th scope="row"><center><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
+                                        <th scope="row"><center><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
                                         <td>@x.task</td>
                                         <td>@x.DueDate</td>
                                         <td>@x.Category</td>
-                                        <td><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
-                                        <td><a asp-controller="HomeController" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
+                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
+                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
                                     </tr>
                                 }
                             }
@@ -77,12 +77,12 @@
                                 if (x.Quadrant == 2)
                                 {
                                     <tr>
-                                        <th scope="row"><center><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
+                                        <th scope="row"><center><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
                                         <td>@x.task</td>
                                         <td>@x.DueDate</td>
                                         <td>@x.Category</td>
-                                        <td><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
-                                        <td><a asp-controller="HomeController" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
+                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
+                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
                                     </tr>
                                 }
                             }
@@ -119,12 +119,12 @@
                                 if (x.Quadrant == 3)
                                 {
                                     <tr>
-                                        <th scope="row"><center><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
+                                        <th scope="row"><center><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
                                         <td>@x.task</td>
                                         <td>@x.DueDate</td>
                                         <td>@x.Category</td>
-                                        <td><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
-                                        <td><a asp-controller="HomeController" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
+                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
+                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
                                     </tr>
                                 }
                             }
@@ -158,12 +158,12 @@
                                 if (x.Quadrant == 4)
                                 {
                                     <tr>
-                                        <th scope="row"><center><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
+                                        <th scope="row"><center><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
                                         <td>@x.task</td>
                                         <td>@x.DueDate</td>
                                         <td>@x.Category</td>
-                                        <td><a asp-controller="HomeController" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
-                                        <td><a asp-controller="HomeController" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
+                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId" class="btn btn-edit px-2 py-0">Edit</a></td>
+                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId" class="btn btn-delete px-2 py-0">Delete</a></td>
                                     </tr>
                                 }
                             }
@@ -177,5 +177,5 @@
 </div>
 
 <center class="mt-3">
-    <a class="btn btn-outline-primary" asp-controller="HomeController" asp-action="Add">Add a Task</a>
+    <a class="btn btn-outline-primary" asp-controller="Home" asp-action="AddTask">Add a Task</a>
 </center>

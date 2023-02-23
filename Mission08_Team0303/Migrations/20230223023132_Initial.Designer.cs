@@ -8,7 +8,7 @@ using Mission08_Team0303.Models;
 namespace Mission08_Team0303.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20230222195830_Initial")]
+    [Migration("20230223023132_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace Mission08_Team0303.Migrations
 
                     b.HasKey("TaskId");
 
-                    b.ToTable("Task");
+                    b.ToTable("Tasks");
 
                     b.HasData(
                         new

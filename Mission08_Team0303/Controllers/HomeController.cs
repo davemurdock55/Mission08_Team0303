@@ -25,7 +25,7 @@ namespace Mission08_Team0303.Controllers
         public IActionResult Index()
         {
             // putting the movieinfo(response) of the moviesContext table context object into a list of type "Movie"
-            var TaskList = tasksContext.Responses
+            var TaskList = tasksContext.Tasks
                 // getting the Cateogry object associated with that movie (through the CategoryID FK relationship)
                 //.Include(x => x.Category)
                 //making sure the movie hasn't been edited

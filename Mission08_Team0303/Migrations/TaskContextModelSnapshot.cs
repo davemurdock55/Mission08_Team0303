@@ -39,7 +39,7 @@ namespace Mission08_Team0303.Migrations
 
                     b.HasKey("TaskId");
 
-                    b.ToTable("Task");
+                    b.ToTable("Tasks");
 
                     b.HasData(
                         new

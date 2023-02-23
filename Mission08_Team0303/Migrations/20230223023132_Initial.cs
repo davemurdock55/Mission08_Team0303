@@ -7,7 +7,7 @@ namespace Mission08_Team0303.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Task",
+                name: "Tasks",
                 columns: table => new
                 {
                     TaskId = table.Column<int>(nullable: false)
@@ -20,21 +20,21 @@ namespace Mission08_Team0303.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Task", x => x.TaskId);
+                    table.PrimaryKey("PK_Tasks", x => x.TaskId);
                 });
 
             migrationBuilder.InsertData(
-                table: "Task",
+                table: "Tasks",
                 columns: new[] { "TaskId", "Category", "Completed", "DueDate", "Quadrant", "task" },
                 values: new object[] { 1, "Home", false, "Tuesday", 4, "Do laundry" });
 
             migrationBuilder.InsertData(
-                table: "Task",
+                table: "Tasks",
                 columns: new[] { "TaskId", "Category", "Completed", "DueDate", "Quadrant", "task" },
                 values: new object[] { 2, "Church", false, "Sunday", 2, "Write talk" });
 
             migrationBuilder.InsertData(
-                table: "Task",
+                table: "Tasks",
                 columns: new[] { "TaskId", "Category", "Completed", "DueDate", "Quadrant", "task" },
                 values: new object[] { 3, "Work", true, null, 1, "Go to work" });
         }
@@ -42,7 +42,7 @@ namespace Mission08_Team0303.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Task");
+                name: "Tasks");
         }
     }
 }

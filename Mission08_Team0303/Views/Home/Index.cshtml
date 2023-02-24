@@ -36,7 +36,7 @@
                         <tbody>
                             @foreach (var x in Model)
                             {
-                                if (x.Quadrant == 1)
+                                if (x.Quadrant == 1 && x.Completed == false)
                                 {
                                     <tr>
                                         <th scope="row"><center><a asp-controller="Home" asp-action="Edit" asp-route-TaskId="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
@@ -74,7 +74,7 @@
                         <tbody>
                             @foreach (var x in Model)
                             {
-                                if (x.Quadrant == 2)
+                                if (x.Quadrant == 2 && x.Completed == false)
                                 {
                                     <tr>
                                         <th scope="row"><center><a asp-controller="Home" asp-action="Edit" asp-route-TaskId="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
@@ -116,7 +116,7 @@
                         <tbody>
                             @foreach (var x in Model)
                             {
-                                if (x.Quadrant == 3)
+                                if (x.Quadrant == 3 && x.Completed == false)
                                 {
                                     <tr>
                                         <th scope="row"><center><a asp-controller="Home" asp-action="Edit" asp-route-TaskId="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>
@@ -155,7 +155,7 @@
                         <tbody>
                             @foreach (var x in Model)
                             {
-                                if (x.Quadrant == 4)
+                                if (x.Quadrant == 4 && x.Completed == false)
                                 {
                                     <tr>
                                         <th scope="row"><center><a asp-controller="Home" asp-action="Edit" asp-route-TaskId="@x.TaskId"><input class="form-check-input" type="checkbox" value="@x.Completed"></a></center></th>

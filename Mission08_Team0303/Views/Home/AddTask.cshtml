@@ -3,34 +3,48 @@
 }
 
 @model Mission08_Team0303.Models.Tasks
-<div>
+
+<div class="justify-content-center align-items-center rounded mx-auto p-3 shadow" style="width: 50%;">
     <form method="post">
+        <br />
         <div asp-validation-summary="All"></div>
 
-        <label asp-for="task">Task:</label>
-        <input asp-for="task" /><br />
+        <div class="form-group">
+            <label asp-for="task">Task:</label>
+            <input class="form-control" asp-for="task" /><br />
+        </div>
 
-        <label asp-for="DueDate">Due Date:</label>
-        <input asp-for="DueDate" /><br />
+        <div class="form-group">
+            <label asp-for="DueDate">Due Date:</label>
+            <input class="form-control" asp-for="DueDate" /><br />
+        </div>
 
-        <label asp-for="Quadrant">Quadrant:</label>
-        <input asp-for="Quadrant" /><br />
+        <div class="form-group">
+            <label asp-for="Quadrant">Quadrant:</label>
+            <input class="form-control" asp-for="Quadrant" /><br />
+        </div>
 
-        <label asp-for="CategoryId">Category:</label>
-        <select asp-for="CategoryId">
-            <option value="">Select a Category</option>
-            @foreach (Category m in ViewBag.Categories)
-            {
-                <option value="@m.CategoryId">@m.CategoryName</option>
-            }
-        </select><br />
+        <div class="form-group">
+            <label asp-for="CategoryId">Category:</label>
+            <select class="form-control" asp-for="CategoryId">
+                <option value="">Select a Category</option>
+                @foreach (Category m in ViewBag.Categories)
+                {
+                    <option value="@m.CategoryId">@m.CategoryName</option>
+                }
+            </select><br />
+        </div>
 
-        <label asp-for="Completed">Completed:</label>
-        <select asp-for="Completed">
-            <option value="true">True</option>
-            <option value="false">False</option>
-        </select><br />
+        <div class="form-group">
+            <label asp-for="Completed">Completed:</label>
+            <select class="form-control" asp-for="Completed">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select><br />
+        </div>
 
-        <button type="submit">Submit Task</button>
+        <input type="hidden" asp-for="TaskId" />
+
+        <button type="submit" class="btn btn-primary">Submit Task</button>
     </form>
 </div>

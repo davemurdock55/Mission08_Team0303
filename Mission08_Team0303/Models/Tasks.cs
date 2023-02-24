@@ -26,7 +26,9 @@ namespace Mission08_Team0303.Models
         public int Quadrant { get; set; }
 
         // category (dropdown containing options: Home, School, Work, Church) Foreign Key Relationship
+        [Required(ErrorMessage = "The category field is required")]
         public int CategoryId { get; set; }
+
         public Category Category { get; set; }
 
         // completed (True/False)

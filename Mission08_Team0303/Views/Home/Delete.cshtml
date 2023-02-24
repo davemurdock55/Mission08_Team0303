@@ -8,8 +8,8 @@
 <h4>Are you sure you want to delete the task for @Model.task?</h4>
 
 <form method="post" asp-action="Delete">
-    <button type="submit">Delete</button>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary">Cancel</a>
 
     <input type="hidden" asp-for="TaskId" />
 </form>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission08_Team0303.Models;
 using System;
@@ -27,7 +28,7 @@ namespace Mission08_Team0303.Controllers
             // putting the movieinfo(response) of the moviesContext table context object into a list of type "Movie"
             var TaskList = tasksContext.Tasks
                 // getting the Cateogry object associated with that movie (through the CategoryID FK relationship)
-                //.Include(x => x.Category)
+                .Include(x => x.Category)
                 //making sure the movie hasn't been edited
                 //.Where(x => x.Edited != true)
                 // ordering by Title
@@ -43,7 +44,7 @@ namespace Mission08_Team0303.Controllers
         {
             ViewBag.Categories = tasksContext.Category.ToList();
 
-            return View();
+            return View(new Tasks());
         }
         [HttpPost]//post method and result
         public IActionResult AddTask(Tasks ar)
@@ -56,11 +57,12 @@ namespace Mission08_Team0303.Controllers
             }
             else
             {
-                ViewBag.Majors = tasksContext.Category.ToList();
+                ViewBag.Categories = tasksContext.Category.ToList();
 
                 return View(ar);
             }
         }
+
         [HttpGet]
         public IActionResult Edit(int taskId)
         {
@@ -71,13 +73,24 @@ namespace Mission08_Team0303.Controllers
 
             return View("AddTask", entry);
         }
+
         [HttpPost]
         public IActionResult Edit(Tasks blah)
         {
-            tasksContext.Update(blah);
-            tasksContext.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                tasksContext.Update(blah);
+                tasksContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Categories = tasksContext.Category.ToList();
+
+                return View("AddTask", blah);
+            }
         }
+
         [HttpGet]
         public IActionResult Delete(int taskId)
         {
@@ -86,6 +99,7 @@ namespace Mission08_Team0303.Controllers
 
             return View(entry);
         }
+
         [HttpPost]
         public IActionResult Delete(Tasks ar)
         {
